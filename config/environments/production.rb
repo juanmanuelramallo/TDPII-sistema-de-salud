@@ -90,5 +90,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Configuring spanish locale
-  config.i18n.available_locales = :es, :en
+  config.i18n.available_locales = :es
 end

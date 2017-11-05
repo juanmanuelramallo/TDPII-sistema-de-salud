@@ -53,5 +53,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Configuring spanish locale
-  config.i18n.available_locales = :es, :en
+  config.i18n.available_locales = :es
+  config.i18n.locale = :es
 end

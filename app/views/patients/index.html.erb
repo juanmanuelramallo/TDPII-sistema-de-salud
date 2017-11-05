@@ -1,4 +1,4 @@
-<main class="patients">
+<main class="patients-index">
   <div class="row">
     <div class="col-md-8">
       <h1>Listado de Pacientes</h1>
@@ -11,32 +11,38 @@
 
   <div class="row">
     <div class="col-md-12">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-            <th>Descripción</th>
-            <th>Creado el día</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @patients.each do |patient| %>
+      <% if @patients.any? %>
+        <table class="table">
+          <thead>
             <tr>
-              <td><%= patient.id %></td>
-              <td><%= patient.name %></td>
-              <td><%= patient.email %></td>
-              <td><%= patient.phone %></td>
-              <td><%= patient.description %></td>
-              <td><%= patient.created_at.to_s :short %></td>
-              <td><%= link_to "Ver", patient %> | <%= link_to "Editar", edit_patient_path(patient) %> | <%= link_to "Eliminar", patient, method: :delete, data: { confirm: "¿Estás seguro que deseas eliminar este paciente?" } %></td>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+              <th>Descripción</th>
+              <th>Creado el día</th>
+              <th>Acciones</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @patients.each do |patient| %>
+              <tr>
+                <td><%= patient.id %></td>
+                <td><%= patient.name %></td>
+                <td><%= patient.email %></td>
+                <td><%= patient.phone %></td>
+                <td><%= patient.description %></td>
+                <td><%= l patient.created_at, format: :short %></td>
+                <td><%= link_to "Ver", patient %> | <%= link_to "Editar", edit_patient_path(patient) %> | <%= link_to "Eliminar", patient, method: :delete, data: { confirm: "¿Estás seguro que deseas eliminar este paciente?" } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="alert alert-info">
+          No hay pacientes para mostrar
+        </div>
+      <% end %>
     </div>
   </div>
 </main>

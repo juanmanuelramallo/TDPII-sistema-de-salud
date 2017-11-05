@@ -1,6 +1,34 @@
 ---
 es:
   activerecord:
+    models:
+      sensor:
+        one: Sensor
+        other: Sensores
+      patient:
+        one: Paciente
+        other: Pacientes
+      measure:
+        one: Medida
+        other: Medidas
+    attributes:
+      sensor:
+        name: Nombre
+        reads: Lee
+        description: Descripción
+        created_at: Creado el
+        updated_at: Actualizado el
+      patient:
+        name: Nombre
+        email: Email
+        phone: Teléfono
+        description: Descripción
+        created_at: Creado el
+        updated_at: Actualizado el
+      measure:
+        value: Valor
+        created_at: Creado el
+        updated_at: Actualizado el
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"

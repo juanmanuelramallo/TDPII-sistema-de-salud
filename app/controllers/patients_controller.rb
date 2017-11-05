@@ -24,11 +24,19 @@ class PatientsController < ApplicationController
   end
 
   def update
-    #TODO
+    if @patient.update(patient_params)
+      redirect_to @patient, notice: "El paciente fue actualizado correctamente"
+    else
+      render :edit
+    end
   end
 
   def destroy
-    #TODO
+    if @patient.destroy
+      redirect_to patients_path, notice: "El paciente fue eliminado correctamente"
+    else
+      redirect_to @patient, alert: "No se pudo eliminar el paciente"
+    end
   end
 
   private

@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :patients
-  resources :sensors
+  resources :sensors, except: [:show]
   resources :measures
 
-  root "patients#index"
+  root "application#home"
 end

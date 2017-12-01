@@ -1,5 +1,5 @@
 class MeasuresController < ApplicationController
-  before_action :set_measure, only: [:destroy]
+  before_action :set_measure
   def destroy
     if @measure.destroy
       redirect_to @measure.patient, notice: "La medición fue eliminada correctamente"

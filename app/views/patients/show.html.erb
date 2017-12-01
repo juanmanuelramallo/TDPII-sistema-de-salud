@@ -26,7 +26,7 @@
             <% @patient.measures.order(:created_at).each_with_index do |measure, index| %>
               <tr>
                 <td><%= index + 1 %></td>
-                <td><%= measure.value %></td>
+                <td><%= measure.decrypted_value %></td>
                 <td><%= measure.sensor.name %></td>
                 <td><%= l measure.created_at, format: :short %></td>
                 <td><%= link_to "Eliminar", measure, method: :delete %></td>

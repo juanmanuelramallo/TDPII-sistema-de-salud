@@ -7,6 +7,9 @@ class Measure < ApplicationRecord
   def decrypted_value
     # The value should be in base 64
     # If value is plain encrypted append { format: :plain }
-    AES.decrypt(self[:value], ENV["SECRET_KEY"])
+    # AES.decrypt(self[:value], "una contraseña")
+
+    # Decode base 64
+    Base64.decode64(self[:value]).unpack("A*").first.to_f
   end
 end
